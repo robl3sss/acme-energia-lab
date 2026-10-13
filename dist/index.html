@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f3ec"><meta name="description" content="Simulador 3D de trabajo y energía: poleas, pendientes y cohete."><title>ACME · Trabajo y energía</title><link rel="stylesheet" href="./styles.css?v=responsive-4">
+</head>
+<body>
+<header class="topbar"><a href="#laboratorio" class="brand">ACME <span>FÍSICA BÁSICA</span></a><button id="export-top" type="button" class="secondary">Descargar datos ↓</button></header>
+<main>
+<div class="intro"><h1>Trabajo y energía</h1><span>3 experimentos</span></div>
+<section id="laboratorio" aria-label="Simulador de trabajo y energía">
+<div class="scenario-tabs" role="tablist" aria-label="Experimento">
+<button id="tab-pulley" class="scenario-tab active" type="button" role="tab" aria-selected="true" aria-controls="experiment" data-mode="pulley"><span>01</span> Polea</button>
+<button id="tab-track" class="scenario-tab" type="button" role="tab" aria-selected="false" aria-controls="experiment" data-mode="track"><span>02</span> Pista</button>
+<button id="tab-rocket" class="scenario-tab" type="button" role="tab" aria-selected="false" aria-controls="experiment" data-mode="rocket"><span>03</span> Cohete</button>
+</div>
+<div id="experiment" class="experiment-grid" role="tabpanel" aria-labelledby="tab-pulley">
+<div class="scene-column">
+<div id="stage" class="stage">
+<div class="stage-head"><span id="scene-name" class="scene-badge">POLEA Y ROCA</span><div class="stage-actions"><button id="forces-toggle" type="button" aria-pressed="true">Fuerzas</button><button id="expand" type="button" aria-label="Ampliar simulación">Ampliar ↗</button></div></div>
+<div id="force-legend" class="force-legend"><span data-force="weight"><i style="background:#be5a37"></i>Peso</span><span data-force="support"><i style="background:#3d788c"></i>Soporte</span><span data-force="friction"><i style="background:#d98a3f"></i>Rozamiento</span><span data-force="thrust"><i style="background:#6b8757"></i>Empuje</span></div>
+<div id="scene-mount" class="scene-mount" aria-label="Escena 3D: arrastra para girar la cámara"></div>
+<div id="loading" class="loading" role="status"><span class="loader"></span><span id="loading-text">Cargando personajes…</span></div>
+</div>
+<div class="view-tools"><div class="camera-tools" aria-label="Vista"><button type="button" class="active" data-camera="perspective" aria-pressed="true">3D</button><button type="button" data-camera="side" aria-pressed="false">Lateral</button><button type="button" data-camera="follow" aria-pressed="false">Seguir</button></div><div class="zoom-tools"><button id="zoom-out" type="button" aria-label="Alejar cámara">−</button><button id="zoom-in" type="button" aria-label="Acercar cámara">+</button></div></div>
+<div class="playback"><div class="play-actions"><button id="play" type="button" class="play-button"><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">Iniciar</span></button><button id="restart" type="button" class="restart" aria-label="Reiniciar simulación">↻</button><label class="speed-label" for="speed"><span>Ritmo</span><select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><div class="time-display"><b><span id="time">0.00</span><small> s</small></b></div><span id="status" class="status">Listo</span></div>
+<div class="readouts"><div><span id="readout-a-label">Elevación</span><b id="readout-a">0.00 <small>m</small></b></div><div><span id="readout-b-label">Fuerza</span><b id="readout-b">981 <small>N</small></b></div><div><span id="readout-c-label">Trabajo</span><b id="readout-c">0 <small>J</small></b></div></div>
+</div>
+<aside class="control-panel" aria-label="Parámetros"><div class="panel-heading"><h2>Controles</h2><button id="defaults" type="button" class="text-button">Restablecer</button></div><div id="parameters" class="parameters"></div><p class="parameter-help">Cambiar un valor reinicia el recorrido.</p><div class="gravity">g = 9.81 m/s²</div></aside>
+</div>
+<div class="analysis-grid">
+<section class="energy-panel" aria-label="Energías"><div class="section-heading"><h2>Energía</h2><span>J</span></div><div class="energy-list"><div class="energy-row"><div><i class="kinetic"></i><span>Cinética</span><b id="energy-k">0 J</b></div><div class="energy-track"><span id="bar-k" class="kinetic"></span></div></div><div class="energy-row"><div><i class="potential"></i><span>Potencial</span><b id="energy-u">0 J</b></div><div class="energy-track"><span id="bar-u" class="potential"></span></div></div><div class="energy-row"><div><i class="thermal"></i><span>Disipada</span><b id="energy-d">0 J</b></div><div class="energy-track"><span id="bar-d" class="thermal"></span></div></div></div><div class="energy-balance"><span id="balance-label">Cuerda · potencia</span><b id="balance-value">0 m · 0 W</b></div></section>
+<section class="chart-panel" aria-label="Gráfica temporal"><div class="section-heading"><h2>Energía y tiempo</h2><button id="export" type="button" class="secondary">CSV ↓</button></div><div class="chart-legend"><span><i class="kinetic"></i>Cinética</span><span><i class="potential"></i>Potencial</span><span><i class="thermal"></i>Disipada</span></div><canvas id="chart" role="img" aria-label="Energías en joules frente a tiempo en segundos"></canvas><p id="chart-detail" class="chart-detail">0 muestras</p></section>
+</div>
+<details id="fundamentos" class="theory"><summary>Fórmulas y modelo</summary><div id="equations" class="equations"></div><p id="assumptions"></p></details>
+</section>
+<footer>Oliver Aldahir García Robles · Física Básica · CUNOC — USAC</footer>
+</main><div id="toast" class="toast" role="status" aria-live="polite" hidden></div><script type="module" src="./app.js?v=responsive-4"></script>
+</body></html>

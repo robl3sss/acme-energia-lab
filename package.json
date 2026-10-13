@@ -1,0 +1,1 @@
+{"name":"acme-energia-lab","private":true,"type":"module","scripts":{"check":"node checks.mjs && node checks-animation.mjs && node checks-routes.mjs"}}

@@ -1,0 +1,4 @@
+These models were supplied by the user as correcaminos.zip and wile-e-coyote.zip.
+The supplied Coyote FBX basename references sab64 and an ImageToStl conversion.
+Original source files remain in the uploaded archives. The GLB files are optimized derivatives for this simulation.
+No animations were provided; movement is controlled by the simulation.

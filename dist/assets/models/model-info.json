@@ -1,0 +1,59 @@
+{
+  "coyote": {
+    "file": "coyote.glb",
+    "source": "wile-e-coyote.zip",
+    "height": 1,
+    "feetY": 0,
+    "up": "+Y",
+    "forward": "+Z",
+    "dimensions": [
+      0.8224777,
+      1,
+      0.4266611
+    ],
+    "animated": false,
+    "skinned": true,
+    "bones": 120,
+    "triangles": 78016,
+    "notes": "Rig retained; redundant MMD rigid bodies, duplicate outline draw group, and 92 facial morph targets removed. Supplied body, mouth and eye textures embedded. Five rendered material primitives.",
+    "motion": "Procedural two-bone IK: walking, alternating rope grips, crouched driving and finger grip"
+  },
+  "roadrunner": {
+    "file": "roadrunner.glb",
+    "source": "correcaminos.zip",
+    "height": 1,
+    "feetY": 0,
+    "up": "+Y",
+    "forward": "+Z",
+    "dimensions": [
+      0.3395197,
+      1,
+      0.4980166
+    ],
+    "animated": true,
+    "skinned": true,
+    "triangles": 27999,
+    "parts": [
+      "ojos",
+      "garras",
+      "cabeza",
+      "ala2",
+      "cuerpo",
+      "patas",
+      "pupila1",
+      "picosup",
+      "muslos",
+      "ala1",
+      "picoinf",
+      "pel",
+      "cola",
+      "pupila2"
+    ],
+    "notes": "Original supplied meshes and atlas texture preserved. Lightweight shared skeleton with independently articulated hips, knees, ankles, neck, wings and tail. Embedded grounded Walk and Run clips.",
+    "bones": 13,
+    "clips": [
+      "Walk",
+      "Run"
+    ]
+  }
+}
